@@ -1,0 +1,10 @@
+{
+  "titulo": "Misa mensual",
+  "tipo": "religioso",
+  "fecha": "2026-11-25",
+  "horaInicio": "09:00",
+  "lugar": "Comedor Fundación San Jorge",
+  "descripcion": "Evento de ejemplo. La misa que se celebra una vez al mes junto a la Iglesia de las Mercedes.",
+  "publicado": true,
+  "ejemplo": true
+}

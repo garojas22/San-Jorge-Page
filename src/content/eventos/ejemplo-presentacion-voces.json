@@ -1,0 +1,11 @@
+{
+  "titulo": "Presentación de Voces de San Jorge",
+  "tipo": "voces",
+  "fecha": "2026-11-13",
+  "horaInicio": "10:00",
+  "horaFin": "11:30",
+  "lugar": "Comedor Fundación San Jorge",
+  "descripcion": "Evento de ejemplo para mostrar cómo se verá una tarjeta. Música terapéutica con la Orquesta Sinfónica y la Dama Voluntaria.",
+  "publicado": true,
+  "ejemplo": true
+}

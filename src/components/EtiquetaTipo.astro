@@ -1,0 +1,21 @@
+---
+// Tipo de evento: un punto de color y el nombre en gris. El color ayuda a
+// reconocerlo de un vistazo, pero el nombre siempre está escrito (nunca
+// depender solo del color).
+import { tipoPorId } from '../lib/eventos.js';
+const { tipo } = Astro.props;
+const t = tipoPorId(tipo);
+---
+<span class="tipo">
+  <span class={`tipo__punto tipo__punto--${t.color}`} aria-hidden="true"></span>{t.nombre}
+</span>
+
+<style>
+  .tipo { display: inline-flex; align-items: center; gap: 0.375rem; }
+  .tipo__punto { width: 9px; height: 9px; border-radius: 50%; flex: none; }
+  .tipo__punto--amarillo { background: var(--sj-amarillo); }
+  .tipo__punto--verde { background: var(--sj-verde); }
+  .tipo__punto--terracota { background: var(--sj-terracota); }
+  .tipo__punto--negro { background: var(--sj-negro); }
+  .tipo__punto--gris { background: var(--sj-gris-medio); }
+</style>

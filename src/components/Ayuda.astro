@@ -1,0 +1,144 @@
+---
+// "Cómo ayudar" y "Solicitar ayuda". Sin formularios a propósito: no hay
+// dónde guardar datos de personas vulnerables de forma segura. Todo
+// termina en una conversación de WhatsApp con la fundación.
+// Sin número de WhatsApp todavía, los botones no se muestran (un botón
+// que no lleva a ningún lado es peor que ninguno).
+import Seccion from './Seccion.astro';
+import Icono from './Icono.astro';
+import Boton from './Boton.astro';
+import Pendiente from './Pendiente.astro';
+import { FORMAS_DE_AYUDAR, SOLICITAR_AYUDA } from '../data/secciones.js';
+import { SITIO } from '../data/sitio.js';
+import { enlaceWhatsApp } from '../lib/whatsapp.js';
+
+const numero = SITIO.contacto.whatsapp;
+const enlaceAyuda = enlaceWhatsApp(numero, SOLICITAR_AYUDA.mensaje);
+const PASOS_PENDIENTES = [
+  'A quién va dirigida la carta',
+  'Qué documentos llevar',
+  'Dónde y en qué horario se entrega',
+];
+---
+<Seccion
+  id="como-ayudar"
+  titulo="Cómo ayudar"
+  intro="Cada plato que se sirve es posible gracias a personas e instituciones que aportan lo que pueden."
+>
+  <ul class="ayudar">
+    {FORMAS_DE_AYUDAR.map((f) => {
+      const enlace = enlaceWhatsApp(numero, f.mensaje);
+      return (
+        <li class="ayudar__item">
+          <div class="ayudar__titulo">
+            <Icono nombre={f.icono} tam={26} />
+            <h3>{f.titulo}</h3>
+          </div>
+          <p class="ayudar__texto">{f.texto}</p>
+          {f.detalle && <p class="ayudar__texto">{f.detalle}</p>}
+          {!f.detalle && f.id !== 'aliado' && <Pendiente que={`detalles de "${f.titulo.toLowerCase()}".`} />}
+          {enlace && (
+            <Boton href={enlace} variante="whatsapp-contorno" externo icono="message-circle" ancho>
+              Escribir por WhatsApp
+            </Boton>
+          )}
+        </li>
+      );
+    })}
+  </ul>
+  {!numero && <Pendiente que="número de WhatsApp oficial (activa los botones de esta sección)." />}
+</Seccion>
+
+<Seccion id="solicitar-ayuda" titulo="Solicitar ayuda" fondo="suave" sinTitulo>
+  <div class="solicitar">
+    <div class="solicitar__texto">
+      <h2 id="titulo-solicitar-ayuda">Solicitar ayuda</h2>
+      <p>{SOLICITAR_AYUDA.intro}</p>
+      {enlaceAyuda && (
+        <div class="solicitar__boton">
+          <Boton href={enlaceAyuda} variante="whatsapp" externo icono="message-circle">Preguntar por WhatsApp</Boton>
+        </div>
+      )}
+    </div>
+    <ol class="pasos">
+      {(SOLICITAR_AYUDA.pasos ?? PASOS_PENDIENTES).map((p) => (
+        <li class:list={{ 'pasos__pendiente': !SOLICITAR_AYUDA.pasos }}>
+          <span>{SOLICITAR_AYUDA.pasos ? p : `[${p}]`}</span>
+        </li>
+      ))}
+    </ol>
+  </div>
+</Seccion>
+
+<style>
+  .ayudar {
+    list-style: none;
+    margin: 0 0 1rem;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 17.5rem), 1fr));
+    gap: 0.75rem;
+  }
+  .ayudar__item {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--sj-linea);
+    border-radius: var(--radio-tarjeta);
+    padding: 1.25rem;
+  }
+  .ayudar__titulo { display: flex; align-items: center; gap: 0.625rem; margin-bottom: 0.375rem; }
+  .ayudar__titulo h3 { margin: 0; font-size: 1.25rem; }
+  .ayudar__texto { margin-bottom: 0.875rem; }
+  /* El botón queda siempre abajo, aunque los textos tengan largos distintos. */
+  .ayudar__item :global(.boton) { margin-top: auto; }
+  .ayudar__item :global(.pendiente) { font-size: 0.9375rem; }
+
+  .solicitar { display: flex; flex-wrap: wrap; gap: 1.25rem 2.5rem; }
+  .solicitar__texto { flex: 1 1 25rem; min-width: 0; }
+  .solicitar__texto h2 { margin-bottom: 0.5rem; }
+  .solicitar__texto p { max-width: 46ch; }
+  .solicitar__boton :global(.boton) { width: 100%; }
+
+  /* Pasos numerados: aquí los números sí son una secuencia real. */
+  .pasos {
+    flex: 1 1 25rem;
+    min-width: 0;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.625rem;
+    counter-reset: paso;
+  }
+  .pasos li {
+    counter-increment: paso;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: var(--sj-blanco);
+    border-radius: 12px;
+    padding: 0.875rem;
+  }
+  .pasos li::before {
+    content: counter(paso);
+    flex: none;
+    display: grid;
+    place-items: center;
+    width: 1.875rem;
+    height: 1.875rem;
+    border-radius: 50%;
+    background: var(--sj-negro);
+    color: var(--sj-blanco);
+    font-weight: 800;
+    font-size: var(--texto-chico);
+  }
+  .pasos__pendiente { color: var(--sj-gris); }
+
+  @media (min-width: 768px) {
+    .ayudar { gap: 1rem; }
+    .ayudar__item { padding: 1.5rem; }
+    .solicitar__boton :global(.boton) { width: auto; }
+    .pasos li { padding: 1rem; }
+  }
+</style>

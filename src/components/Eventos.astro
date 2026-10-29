@@ -1,0 +1,92 @@
+---
+// Próximos eventos con filtro por tipo.
+// En la compilación se descartan los que ya pasaron; en el teléfono el
+// script vuelve a esconder los que vencieron después de publicar, porque
+// el sitio no se recompila todos los días.
+import Seccion from './Seccion.astro';
+import TarjetaEvento from './TarjetaEvento.astro';
+import { cargarEventos } from '../fuentes/eventos.js';
+import { eventosProximos, tiposPresentes } from '../lib/eventos.js';
+import { fechaLocalISO } from '../lib/fechas.js';
+
+const eventos = eventosProximos(await cargarEventos(), fechaLocalISO());
+const tipos = tiposPresentes(eventos);
+---
+<Seccion id="eventos" fondo="suave" sinTitulo>
+  <div class="eventos__cabeza">
+    <h2 id="titulo-eventos">Próximos eventos</h2>
+    {tipos.length > 1 && (
+      <div class="filtros" data-filtros hidden role="group" aria-label="Filtrar eventos por tipo">
+        <button type="button" class="filtro" data-filtro="todos" aria-pressed="true">Todos</button>
+        {tipos.map((t) => (
+          <button type="button" class="filtro" data-filtro={t.id} aria-pressed="false">{t.nombre}</button>
+        ))}
+      </div>
+    )}
+  </div>
+
+  <ul class="eventos" data-eventos>
+    {eventos.map((e) => (
+      <li data-fecha={e.fecha} data-tipo={e.tipo}>
+        <TarjetaEvento evento={e} />
+      </li>
+    ))}
+  </ul>
+
+  <p class="eventos__vacio" data-eventos-vacio hidden={eventos.length > 0}>
+    Por ahora no hay eventos anunciados. Las actividades de cada día siguen en la
+    <a href="#programacion">programación de la semana</a>.
+  </p>
+</Seccion>
+
+<style>
+  .eventos__cabeza {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1.25rem;
+  }
+  .eventos__cabeza h2 { margin: 0; }
+
+  /* Sin `display` aquí: los filtros empiezan con `hidden` y solo el script
+     los muestra (sin JavaScript no funcionarían). Van en varias líneas en
+     vez de deslizarse de lado: un botón fuera de la pantalla no existe
+     para quien no sabe que hay que deslizar. */
+  .filtros { flex-wrap: wrap; gap: 0.5rem; }
+  .filtros:not([hidden]) { display: flex; }
+  .filtro {
+    min-height: 2.75rem;
+    padding: 0 1rem;
+    border-radius: 999px;
+    border: 1px solid var(--sj-borde-control);
+    background: var(--sj-blanco);
+    color: var(--sj-negro);
+    font-family: var(--fuente);
+    font-weight: 700;
+    font-size: var(--texto-chico);
+    cursor: pointer;
+  }
+  .filtro[aria-pressed='true'] { background: var(--sj-negro); border-color: var(--sj-negro); color: var(--sj-blanco); }
+
+  .eventos {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 18.75rem), 1fr));
+    gap: 0.75rem;
+  }
+  .eventos li[hidden] { display: none; }
+  .eventos__vacio {
+    background: var(--sj-blanco);
+    border: 1px solid var(--sj-linea);
+    border-radius: var(--radio-tarjeta);
+    padding: 1.25rem;
+    margin: 0;
+  }
+  @media (min-width: 768px) {
+    .eventos { gap: 1rem; }
+  }
+</style>

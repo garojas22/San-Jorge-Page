@@ -1,0 +1,74 @@
+---
+// Tarjeta "Hoy en San Jorge". Se calcula en el teléfono de quien la ve
+// (scripts/cliente.js), porque el sitio se publica una vez y se mira
+// cualquier día. Sin JavaScript muestra el horario y remite a la semana.
+import { HORARIO } from '../data/programacion.js';
+import { rangoHoras } from '../lib/fechas.js';
+---
+<section id="hoy" class="hoy contenedor" aria-labelledby="titulo-hoy">
+  <div class="hoy__tarjeta">
+    <div class="hoy__cabeza">
+      <h2 id="titulo-hoy" class="hoy__etiqueta">
+        <span class="hoy__punto" aria-hidden="true"></span>
+        Hoy en San Jorge
+      </h2>
+      <p class="hoy__dia" data-hoy-dia>{HORARIO.dias}</p>
+      <p class="hoy__horario" data-hoy-horario>{rangoHoras(HORARIO.apertura, HORARIO.cierre)}</p>
+    </div>
+    <ul class="hoy__lista" data-hoy-lista>
+      <li class="hoy__enlace"><a href="#programacion">Ver toda la semana</a></li>
+    </ul>
+  </div>
+</section>
+
+<style>
+  .hoy { padding-bottom: var(--espacio-seccion); }
+  .hoy__tarjeta {
+    border: 1px solid var(--sj-linea);
+    border-radius: var(--radio-tarjeta);
+    padding: 1.25rem;
+  }
+  .hoy__etiqueta {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 0 0 0.25rem;
+    font-size: 0.9375rem;
+    font-weight: 700;
+    color: var(--sj-gris);
+  }
+  .hoy__punto {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--sj-amarillo);
+  }
+  .hoy__dia {
+    margin: 0;
+    font-size: var(--h2);
+    font-weight: 800;
+    line-height: 1.2;
+  }
+  .hoy__horario { margin: 0 0 0.75rem; color: var(--sj-gris); font-size: var(--texto-chico); }
+  .hoy__lista { list-style: none; margin: 0; padding: 0; }
+  .hoy__lista :global(li) { padding: 0.625rem 0; border-top: 1px solid var(--sj-linea); }
+  .hoy__lista :global(li:last-child) { border-bottom: 1px solid var(--sj-linea); }
+  .hoy__lista :global(li.hoy__enlace) { border-bottom: 0; }
+  .hoy__enlace a { font-weight: 700; font-size: var(--texto-chico); }
+
+  @media (min-width: 768px) {
+    .hoy__tarjeta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem 3rem;
+      align-items: flex-start;
+      border-radius: var(--radio-grande);
+      padding: 1.75rem 2rem;
+    }
+    .hoy__cabeza { flex: 0 1 21rem; }
+    .hoy__dia { font-size: 1.75rem; }
+    .hoy__horario { margin-bottom: 0; }
+    .hoy__lista { flex: 1 1 22rem; }
+    .hoy__lista :global(li:first-child) { border-top: 0; }
+  }
+</style>

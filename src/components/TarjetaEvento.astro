@@ -1,0 +1,69 @@
+---
+// Tarjeta de un evento en la lista. Recibe el evento ya normalizado
+// (ver lib/eventos.js) y solo lo pinta. Toda la tarjeta es tocable.
+import EtiquetaTipo from './EtiquetaTipo.astro';
+import { fechaCorta, fechaLarga, horaLegible } from '../lib/fechas.js';
+const { evento } = Astro.props;
+const corta = fechaCorta(evento.fecha);
+// "viernes 13 de noviembre" -> "Viernes 13 de noviembre" al inicio de la línea.
+const larga = fechaLarga(evento.fecha);
+const cuando = `${larga[0].toUpperCase()}${larga.slice(1)}, ${horaLegible(evento.horaInicio)}`;
+---
+<article class="evento" aria-labelledby={`ev-${evento.id}`}>
+  <div class="evento__fecha" aria-hidden="true">
+    <span class="evento__num">{corta.dia}</span>
+    <span class="evento__mes">{corta.mes}</span>
+  </div>
+  <div>
+    <p class="evento__etiquetas">
+      <EtiquetaTipo tipo={evento.tipo} />
+      {evento.ejemplo && <span class="evento__ejemplo">Ejemplo</span>}
+    </p>
+    <h3 id={`ev-${evento.id}`} class="evento__titulo">
+      <a href={`/eventos/${evento.id}`}>{evento.titulo}</a>
+    </h3>
+    <p class="evento__dato">{cuando}</p>
+    <p class="evento__dato evento__lugar">{evento.lugar}</p>
+  </div>
+</article>
+
+<style>
+  .evento {
+    position: relative;
+    display: grid;
+    grid-template-columns: 3.5rem 1fr;
+    gap: 0.875rem;
+    height: 100%;
+    background: var(--sj-blanco);
+    border: 1px solid var(--sj-linea);
+    border-radius: var(--radio-tarjeta);
+    padding: 1.125rem 1rem;
+  }
+  .evento:hover { border-color: var(--sj-borde-control); }
+  .evento__fecha { display: flex; flex-direction: column; align-items: center; padding-top: 0.125rem; }
+  .evento__num { font-size: 1.875rem; font-weight: 800; line-height: 1; }
+  .evento__mes { font-size: 0.9375rem; color: var(--sj-gris); line-height: 1.4; }
+  .evento__etiquetas {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 0 0 0.25rem;
+    font-size: var(--texto-mini);
+    font-weight: 700;
+    color: var(--sj-gris);
+  }
+  .evento__ejemplo { border: 1px dashed var(--sj-gris-medio); border-radius: 999px; padding: 0 0.5rem; }
+  .evento__titulo { font-size: var(--h3); line-height: 1.3; margin: 0 0 0.25rem; }
+  .evento__titulo a { color: var(--sj-negro); text-decoration: none; }
+  /* El enlace del título cubre toda la tarjeta: zona grande para el dedo. */
+  .evento__titulo a::after { content: ''; position: absolute; inset: 0; border-radius: var(--radio-tarjeta); }
+  .evento__titulo a:focus-visible { outline: none; box-shadow: none; }
+  .evento:has(a:focus-visible) { outline: 3px solid var(--sj-negro); outline-offset: 3px; }
+  .evento__dato { margin: 0; font-size: var(--texto-chico); }
+  .evento__lugar { color: var(--sj-gris); }
+
+  @media (min-width: 768px) {
+    .evento { padding: 1.25rem; }
+  }
+</style>

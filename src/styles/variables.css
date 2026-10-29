@@ -1,0 +1,57 @@
+/* Sistema de diseño: el ÚNICO lugar donde se definen colores, tamaños y radios.
+   Nada de hex sueltos en otros archivos: si un color cambia, cambia aquí.
+   Diseño aprobado el 2026-10-28: fondo blanco, negro y amarillo solo en
+   detalles. Contrastes verificados en docs/DECISIONES.md. */
+
+:root {
+  /* Base */
+  --sj-blanco: #FFFFFF;
+  --sj-negro: #1C1C1C;          /* texto, títulos, filtro activo */
+  --sj-texto-suave: #3A3632;    /* listas de actividades */
+  --sj-gris: #5C5650;           /* texto secundario, fechas, notas */
+  --sj-fondo-suave: #F7F5F0;    /* secciones alternas, pie, tarjetas de cifras */
+  --sj-linea: #E9E5DD;          /* bordes de tarjetas y separadores */
+  --sj-borde-control: #D9D4CB;  /* borde de botones A+, Menú y filtros */
+  --sj-gris-medio: #8A8379;     /* solo puntos y bordes punteados, nunca texto */
+  --sj-borde-pendiente: #B9B2A7;
+
+  /* Detalles de marca: usar poco */
+  --sj-amarillo: #F5C400;       /* línea del encabezado, botón principal, punto de "Hoy" */
+  --sj-resaltado: #FFF4CC;      /* fondo del día de hoy en la semana */
+
+  /* Funcionales */
+  --sj-verde: #2F5D3A;          /* SOLO WhatsApp: que se reconozca de un vistazo */
+  --sj-terracota: #A8462A;      /* SOLO el punto de los eventos de medicinas */
+
+  /* Tipografía: una sola familia. Todo en rem para que A+ escale la página. */
+  --fuente: 'Nunito Sans', system-ui, sans-serif;
+  --texto-base: 1.125rem;       /* 18 px: nunca bajar de 16 */
+  --texto-chico: 1rem;          /* 16 px */
+  --texto-mini: 0.875rem;       /* 14 px: solo etiquetas cortas */
+  --h1: 2.125rem;               /* 34 px en teléfono */
+  --h2: 1.625rem;               /* 26 px en teléfono */
+  --h3: 1.1875rem;              /* 19 px */
+  --interlineado: 1.6;
+
+  /* Formas */
+  --radio-tarjeta: 14px;
+  --radio-grande: 18px;
+  --radio-boton: 10px;
+  --sombra-flotante: 0 4px 14px rgb(28 28 28 / 0.18);
+
+  /* Medidas */
+  --toque-min: 48px;
+  --ancho-max: 1140px;
+  --margen-lateral: 1rem;
+  --espacio-seccion: 2.5rem;
+  --alto-barra-inferior: 64px;
+}
+
+@media (min-width: 768px) {
+  :root {
+    --h1: 3.25rem;              /* 52 px */
+    --h2: 2rem;                 /* 32 px */
+    --margen-lateral: 1.5rem;
+    --espacio-seccion: 4.5rem;
+  }
+}

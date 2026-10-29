@@ -1,0 +1,7 @@
+# Todo el texto en UTF-8 con saltos de línea LF. Evita que Windows o una
+# herramienta "limpie" la codificación y convierta "día" en "dÃ­a".
+* text=auto eol=lf
+*.png binary
+*.webp binary
+*.jpg binary
+*.woff2 binary
