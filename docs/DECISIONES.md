@@ -15,6 +15,7 @@ Los `id` (archivos de evento, tipos de evento) no se cambian. Si alguna vez hace
 
 | Fecha | Decisión | Por qué | Techo conocido |
 | --- | --- | --- | --- |
+| 2026-10-29 | **Se quita Astro: HTML/CSS/JS sin compilación**, pedido de Alejandro para poder leer y mantener el código directo. Techo: la vista previa en WhatsApp de cada evento muestra la tarjeta general; encabezado y pie repetidos en 3 archivos | Astro sumaba una capa de compilación que impedía editar directamente los archivos en producción | Para agregar un evento se edita `js/data/eventos.js` sin compilar |
 | 2026-10-28 | **Diseño minimalista aprobado** (lienzo "San Jorge Conecta — Diseños"): fondo blanco, gris suave para alternar secciones, negro y amarillo solo en detalles | La primera versión (negro y amarillo dominantes, títulos en mayúsculas) parecía una página de apuestas. La fundación usa mucho el blanco | Cualquier pantalla nueva sigue ese lienzo; se diseña antes de codificar |
 | 2026-10-28 | Una sola tipografía: **Nunito Sans** (se quitó Montserrat del brief) | Montserrat 800 en mayúsculas era lo que más endurecía el diseño. Una familia redondeada es más amable y legible para adultos mayores | — |
 | 2026-10-28 | Verde solo para WhatsApp; terracota solo como punto de "Medicinas"; tipos de evento como punto de color + nombre escrito | Menos colores; nunca depender solo del color | — |

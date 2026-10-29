@@ -1,0 +1,51 @@
+/* Programación semanal: escrita en el HTML (no depende de JavaScript ni de
+   internet extra). El script solo resalta el día de hoy.
+   Teléfono: una lista con separadores. Computadora: una tarjeta por día. */
+
+.semana { list-style: none; margin: 0; padding: 0; }
+.semana__dia { padding: 1rem 0; border-top: 1px solid var(--sj-linea); }
+.semana__dia:last-child { border-bottom: 1px solid var(--sj-linea); }
+.semana__nombre {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  margin: 0 0 0.25rem;
+  font-size: 1.25rem;
+}
+.semana__hoy {
+  font-size: var(--texto-mini);
+  background: var(--sj-negro);
+  color: var(--sj-blanco);
+  padding: 0.05rem 0.625rem;
+  border-radius: 999px;
+}
+.semana__actividades { margin: 0; padding-left: 1.25rem; color: var(--sj-texto-suave); }
+
+/* El día de hoy: fondo amarillo muy suave, sin cambiar el orden. */
+.semana__dia.es-hoy {
+  background: var(--sj-resaltado);
+  border-radius: 12px;
+  border-color: transparent;
+  padding-inline: 0.875rem;
+  margin-inline: -0.875rem;
+}
+.semana__dia.es-hoy .semana__actividades { color: var(--sj-negro); }
+.semana__dia.es-hoy + .semana__dia { border-top-color: transparent; }
+
+@media (min-width: 768px) {
+  .semana {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(11.5rem, 1fr));
+    gap: 0.75rem;
+  }
+  .semana__dia,
+  .semana__dia:last-child,
+  .semana__dia.es-hoy + .semana__dia {
+    border: 1px solid var(--sj-linea);
+    border-radius: var(--radio-tarjeta);
+    padding: 1.25rem;
+  }
+  .semana__dia.es-hoy { border-color: var(--sj-amarillo); margin-inline: 0; padding: 1.25rem; }
+  .semana__nombre { margin-bottom: 0.5rem; }
+  .semana__actividades { padding-left: 1.125rem; font-size: var(--texto-chico); }
+}

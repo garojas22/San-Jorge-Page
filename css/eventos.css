@@ -1,0 +1,103 @@
+/* Próximos eventos con filtro por tipo.
+   Incluye estilos de tarjeta de evento y etiqueta de tipo. */
+
+.eventos__cabeza {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+.eventos__cabeza h2 { margin: 0; }
+
+/* Sin `display` aquí: los filtros empiezan con `hidden` y solo el script
+   los muestra (sin JavaScript no funcionarían). Van en varias líneas en
+   vez de deslizarse de lado: un botón fuera de la pantalla no existe
+   para quien no sabe que hay que deslizar. */
+.filtros { flex-wrap: wrap; gap: 0.5rem; }
+.filtros:not([hidden]) { display: flex; }
+.filtro {
+  min-height: 2.75rem;
+  padding: 0 1rem;
+  border-radius: 999px;
+  border: 1px solid var(--sj-borde-control);
+  background: var(--sj-blanco);
+  color: var(--sj-negro);
+  font-family: var(--fuente);
+  font-weight: 700;
+  font-size: var(--texto-chico);
+  cursor: pointer;
+}
+.filtro[aria-pressed='true'] { background: var(--sj-negro); border-color: var(--sj-negro); color: var(--sj-blanco); }
+
+.eventos {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 18.75rem), 1fr));
+  gap: 0.75rem;
+}
+.eventos li[hidden] { display: none; }
+.eventos__vacio {
+  background: var(--sj-blanco);
+  border: 1px solid var(--sj-linea);
+  border-radius: var(--radio-tarjeta);
+  padding: 1.25rem;
+  margin: 0;
+}
+@media (min-width: 768px) {
+  .eventos { gap: 1rem; }
+}
+
+/* --- Tarjeta de evento --------------------------------------------------- */
+.evento {
+  position: relative;
+  display: grid;
+  grid-template-columns: 3.5rem 1fr;
+  gap: 0.875rem;
+  height: 100%;
+  background: var(--sj-blanco);
+  border: 1px solid var(--sj-linea);
+  border-radius: var(--radio-tarjeta);
+  padding: 1.125rem 1rem;
+}
+.evento:hover { border-color: var(--sj-borde-control); }
+.evento__fecha { display: flex; flex-direction: column; align-items: center; padding-top: 0.125rem; }
+.evento__num { font-size: 1.875rem; font-weight: 800; line-height: 1; }
+.evento__mes { font-size: 0.9375rem; color: var(--sj-gris); line-height: 1.4; }
+.evento__etiquetas {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0 0 0.25rem;
+  font-size: var(--texto-mini);
+  font-weight: 700;
+  color: var(--sj-gris);
+}
+.evento__ejemplo { border: 1px dashed var(--sj-gris-medio); border-radius: 999px; padding: 0 0.5rem; }
+.evento__titulo { font-size: var(--h3); line-height: 1.3; margin: 0 0 0.25rem; }
+.evento__titulo a { color: var(--sj-negro); text-decoration: none; }
+/* El enlace del título cubre toda la tarjeta: zona grande para el dedo. */
+.evento__titulo a::after { content: ''; position: absolute; inset: 0; border-radius: var(--radio-tarjeta); }
+.evento__titulo a:focus-visible { outline: none; box-shadow: none; }
+.evento:has(a:focus-visible) { outline: 3px solid var(--sj-negro); outline-offset: 3px; }
+.evento__dato { margin: 0; font-size: var(--texto-chico); }
+.evento__lugar { color: var(--sj-gris); }
+
+@media (min-width: 768px) {
+  .evento { padding: 1.25rem; }
+}
+
+/* --- Etiqueta de tipo ---------------------------------------------------- */
+/* Tipo de evento: un punto de color y el nombre en gris. El color ayuda a
+   reconocerlo de un vistazo, pero el nombre siempre está escrito. */
+.tipo { display: inline-flex; align-items: center; gap: 0.375rem; }
+.tipo__punto { width: 9px; height: 9px; border-radius: 50%; flex: none; }
+.tipo__punto--amarillo { background: var(--sj-amarillo); }
+.tipo__punto--verde { background: var(--sj-verde); }
+.tipo__punto--terracota { background: var(--sj-terracota); }
+.tipo__punto--negro { background: var(--sj-negro); }
+.tipo__punto--gris { background: var(--sj-gris-medio); }

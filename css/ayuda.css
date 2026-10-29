@@ -1,0 +1,74 @@
+/* "Cómo ayudar" y "Solicitar ayuda". Sin formularios a propósito: no hay
+   dónde guardar datos de personas vulnerables de forma segura. Todo
+   termina en una conversación de WhatsApp con la fundación. */
+
+.ayudar {
+  list-style: none;
+  margin: 0 0 1rem;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 17.5rem), 1fr));
+  gap: 0.75rem;
+}
+.ayudar__item {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--sj-linea);
+  border-radius: var(--radio-tarjeta);
+  padding: 1.25rem;
+}
+.ayudar__titulo { display: flex; align-items: center; gap: 0.625rem; margin-bottom: 0.375rem; }
+.ayudar__titulo h3 { margin: 0; font-size: 1.25rem; }
+.ayudar__texto { margin-bottom: 0.875rem; }
+/* El botón queda siempre abajo, aunque los textos tengan largos distintos. */
+.ayudar__item .boton { margin-top: auto; }
+.ayudar__item .pendiente { font-size: 0.9375rem; }
+
+.solicitar { display: flex; flex-wrap: wrap; gap: 1.25rem 2.5rem; }
+.solicitar__texto { flex: 1 1 25rem; min-width: 0; }
+.solicitar__texto h2 { margin-bottom: 0.5rem; }
+.solicitar__texto p { max-width: 46ch; }
+.solicitar__boton .boton { width: 100%; }
+
+/* Pasos numerados: aquí los números sí son una secuencia real. */
+.pasos {
+  flex: 1 1 25rem;
+  min-width: 0;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+  counter-reset: paso;
+}
+.pasos li {
+  counter-increment: paso;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: var(--sj-blanco);
+  border-radius: 12px;
+  padding: 0.875rem;
+}
+.pasos li::before {
+  content: counter(paso);
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 1.875rem;
+  height: 1.875rem;
+  border-radius: 50%;
+  background: var(--sj-negro);
+  color: var(--sj-blanco);
+  font-weight: 800;
+  font-size: var(--texto-chico);
+}
+.pasos__pendiente { color: var(--sj-gris); }
+
+@media (min-width: 768px) {
+  .ayudar { gap: 1rem; }
+  .ayudar__item { padding: 1.5rem; }
+  .solicitar__boton .boton { width: auto; }
+  .pasos li { padding: 1rem; }
+}

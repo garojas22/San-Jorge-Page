@@ -1,0 +1,35 @@
+/* Portada. Teléfono: foto arriba, texto y botones debajo.
+   Computadora: texto a la izquierda, foto a la derecha.
+   Sin foto todavía, un recuadro "pendiente" ocupa su lugar. */
+
+.portada {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding-block: 1.25rem 2rem;
+}
+.portada__foto { height: 12.5rem; }
+.portada__foto img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: var(--radio-tarjeta);
+}
+.portada__foto .pendiente { height: 100%; }
+.portada h1 { margin-bottom: 0.5rem; }
+.portada__sub { color: var(--sj-gris); margin-bottom: 1.5rem; max-width: 32ch; }
+.portada__botones { display: flex; flex-direction: column; gap: 0.625rem; }
+
+@media (min-width: 768px) {
+  .portada {
+    flex-direction: row-reverse;
+    align-items: center;
+    gap: 2.5rem;
+    padding-block: 3.5rem 2.5rem;
+  }
+  .portada__foto, .portada__texto { flex: 1 1 0; min-width: 0; }
+  .portada__foto { height: 22.5rem; }
+  .portada__foto .pendiente, .portada__foto img { border-radius: var(--radio-grande); }
+  .portada__sub { font-size: 1.25rem; }
+  .portada__botones { flex-direction: row; flex-wrap: wrap; gap: 0.75rem; }
+}

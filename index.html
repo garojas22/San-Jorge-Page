@@ -1,0 +1,483 @@
+<!doctype html>
+<html lang="es-VE">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Fundación San Jorge | Comedor y labor social en La Victoria, Aragua</title>
+  <meta name="description" content="Comedor para adultos mayores en La Victoria, Aragua. Conoce las actividades de cada día, los próximos eventos y cómo donar o ser voluntario." />
+  <meta name="theme-color" content="#FFFFFF" />
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml" />
+
+  <!-- Open Graph: cómo se ve el enlace al compartirlo por WhatsApp o Instagram -->
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="es_VE" />
+  <meta property="og:site_name" content="Fundación San Jorge" />
+  <meta property="og:title" content="Fundación San Jorge | Comedor y labor social en La Victoria, Aragua" />
+  <meta property="og:description" content="Comedor para adultos mayores en La Victoria, Aragua. Conoce las actividades de cada día, los próximos eventos y cómo donar o ser voluntario." />
+  <meta property="og:image" content="img/og.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "NGO",
+    "name": "Fundación San Jorge",
+    "slogan": "Alimentamos corazones",
+    "areaServed": "La Victoria, municipio José Félix Ribas, Aragua"
+  }
+  </script>
+
+  <!-- Se ejecuta antes de pintar: aplica el texto grande guardado sin
+       que la página "salte", y marca que hay JavaScript disponible. -->
+  <script>
+    document.documentElement.classList.add('js');
+    try {
+      if (localStorage.getItem('sj-texto-grande') === '1') {
+        document.documentElement.classList.add('texto-grande');
+      }
+    } catch (e) {}
+  </script>
+
+  <link rel="stylesheet" href="css/variables.css" />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/encabezado.css" />
+  <link rel="stylesheet" href="css/portada.css" />
+  <link rel="stylesheet" href="css/hoy.css" />
+  <link rel="stylesheet" href="css/secciones.css" />
+  <link rel="stylesheet" href="css/programacion.css" />
+  <link rel="stylesheet" href="css/eventos.css" />
+  <link rel="stylesheet" href="css/servicios.css" />
+  <link rel="stylesheet" href="css/voces.css" />
+  <link rel="stylesheet" href="css/ayuda.css" />
+  <link rel="stylesheet" href="css/contacto.css" />
+  <link rel="stylesheet" href="css/pie.css" />
+  <link rel="stylesheet" href="css/barra-inferior.css" />
+</head>
+<body>
+  <a class="saltar-contenido" href="#contenido">Saltar al contenido</a>
+
+  <!-- ===== ENCABEZADO ===================================================== -->
+  <header class="encabezado">
+    <div class="contenedor encabezado__fila">
+      <a class="marca" href="/" aria-label="Fundación San Jorge, inicio">
+        <img class="marca__logo" src="img/logo-san-jorge.webp" alt="" width="48" height="45" />
+        <span class="marca__texto">
+          <span class="marca__pre">Fundación</span>
+          <span class="marca__nombre">San Jorge</span>
+        </span>
+      </a>
+
+      <nav class="menu" id="menu-principal" aria-label="Principal">
+        <ul>
+          <li><a href="#programacion">Actividades</a></li>
+          <li><a href="#eventos">Eventos</a></li>
+          <li class="menu__solo-telefono"><a href="#quienes-somos">Quiénes somos</a></li>
+          <li><a href="#servicios">Servicios</a></li>
+          <li><a href="#como-ayudar">Cómo ayudar</a></li>
+          <li><a href="#solicitar-ayuda">Solicitar ayuda</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+        <p class="menu__horario">Abierto de lunes a viernes, 8:00&nbsp;a.m. a 2:00&nbsp;p.m.</p>
+      </nav>
+
+      <div class="encabezado__acciones">
+        <button class="control" type="button" data-texto-grande aria-pressed="false">
+          A+<span class="solo-lector"> Agrandar el texto</span>
+        </button>
+        <button
+          class="control control--menu"
+          type="button"
+          data-menu-boton
+          aria-expanded="false"
+          aria-controls="menu-principal"
+        >
+          <span class="control__icono control__icono--abrir"><svg aria-hidden="true" focusable="false" class="icono" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16"/><path d="M4 12h16"/><path d="M4 19h16"/></svg></span>
+          <span class="control__icono control__icono--cerrar"><svg aria-hidden="true" focusable="false" class="icono" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></span>
+          <span data-menu-texto>Menú</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="contenido">
+
+    <!-- ===== PORTADA ======================================================= -->
+    <section class="portada contenedor" aria-labelledby="titulo-portada">
+      <div class="portada__foto">
+        <div class="pendiente pendiente--foto"><span>[Foto del patio con los murales]</span></div>
+      </div>
+      <div class="portada__texto">
+        <h1 id="titulo-portada">Alimentamos corazones</h1>
+        <p class="portada__sub">
+          Comedor para adultos mayores en La Victoria, Aragua.
+          Lunes a viernes, de 8:00&nbsp;a.m. a 2:00&nbsp;p.m.
+        </p>
+        <div class="portada__botones">
+          <a class="boton boton--principal" href="#hoy">Ver actividades de hoy</a>
+          <a class="boton boton--secundario" href="#como-ayudar">Cómo ayudar</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== HOY =========================================================== -->
+    <section id="hoy" class="hoy contenedor" aria-labelledby="titulo-hoy">
+      <div class="hoy__tarjeta">
+        <div class="hoy__cabeza">
+          <h2 id="titulo-hoy" class="hoy__etiqueta">
+            <span class="hoy__punto" aria-hidden="true"></span>
+            Hoy en San Jorge
+          </h2>
+          <p class="hoy__dia" data-hoy-dia>Lunes a viernes</p>
+          <p class="hoy__horario" data-hoy-horario>8:00&nbsp;a.m. a 2:00&nbsp;p.m.</p>
+        </div>
+        <ul class="hoy__lista" data-hoy-lista>
+          <li class="hoy__enlace"><a href="#programacion">Ver toda la semana</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===== QUIÉNES SOMOS ================================================= -->
+    <section id="quienes-somos" class="seccion seccion--suave" aria-labelledby="titulo-quienes-somos">
+      <div class="contenedor">
+        <h2 id="titulo-quienes-somos" class="seccion__titulo">Quiénes somos</h2>
+        <div class="qs">
+          <div class="qs__texto">
+            <p>Desde hace 29 años, la Fundación San Jorge acompaña a las personas que más lo necesitan en La Victoria. Hace 17 años abrió su comedor, que hoy atiende de lunes a viernes a cientos de personas.</p>
+            <p>La mayoría son adultos mayores: muchos viven en situación de calle y otros llegan buscando compañía.</p>
+            <p class="qs__mision">"Alimento para el cuerpo y para el alma."</p>
+          </div>
+          <ul class="cifras" aria-label="La fundación en cifras">
+            <li>
+              <span class="cifras__valor">29</span>
+              <span class="cifras__texto">años de la fundación</span>
+            </li>
+            <li>
+              <span class="cifras__valor">17</span>
+              <span class="cifras__texto">años del comedor</span>
+            </li>
+            <li>
+              <span class="cifras__valor">400+</span>
+              <span class="cifras__texto">personas al día</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== PROGRAMACIÓN ================================================== -->
+    <section id="programacion" class="seccion seccion--blanco" aria-labelledby="titulo-programacion">
+      <div class="contenedor">
+        <h2 id="titulo-programacion" class="seccion__titulo seccion__titulo--con-intro">Programación de la semana</h2>
+        <p class="seccion__intro">Lunes a viernes, de 8:00&nbsp;a.m. a 2:00&nbsp;p.m.</p>
+        <ol class="semana">
+          <li class="semana__dia" data-dia="1">
+            <h3 class="semana__nombre">
+              Lunes
+              <span class="semana__hoy" hidden>Hoy</span>
+            </h3>
+            <ul class="semana__actividades">
+              <li>Terapias personales</li>
+              <li>Juegos de mesa: dominó y ajedrez</li>
+              <li>Música</li>
+              <li>Ensayo de Voces de San Jorge</li>
+            </ul>
+          </li>
+          <li class="semana__dia" data-dia="2">
+            <h3 class="semana__nombre">
+              Martes
+              <span class="semana__hoy" hidden>Hoy</span>
+            </h3>
+            <ul class="semana__actividades">
+              <li>Desayuno de arepas</li>
+              <li>Iglesia Evangélica con el Pastor Luis Córdoba</li>
+              <li>Terapias familiares y grupales con la Lcda. Xiomara</li>
+            </ul>
+          </li>
+          <li class="semana__dia" data-dia="3">
+            <h3 class="semana__nombre">
+              Miércoles
+              <span class="semana__hoy" hidden>Hoy</span>
+            </h3>
+            <ul class="semana__actividades">
+              <li>Rosario con la Iglesia de las Mercedes</li>
+              <li>Misa (una vez al mes)</li>
+            </ul>
+          </li>
+          <li class="semana__dia" data-dia="4">
+            <h3 class="semana__nombre">
+              Jueves
+              <span class="semana__hoy" hidden>Hoy</span>
+            </h3>
+            <ul class="semana__actividades">
+              <li>Gimnasia cerebral</li>
+              <li>Dominó, ajedrez, ludo y bingo con premios</li>
+            </ul>
+          </li>
+          <li class="semana__dia" data-dia="5">
+            <h3 class="semana__nombre">
+              Viernes
+              <span class="semana__hoy" hidden>Hoy</span>
+            </h3>
+            <ul class="semana__actividades">
+              <li>Bingo</li>
+              <li>Mañana de karaoke con Simón</li>
+            </ul>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ===== EVENTOS ======================================================= -->
+    <section id="eventos" class="seccion seccion--suave" aria-labelledby="titulo-eventos">
+      <div class="contenedor">
+        <div class="eventos__cabeza">
+          <h2 id="titulo-eventos">Próximos eventos</h2>
+          <!-- Los filtros se construyen en JS si hay más de un tipo. -->
+          <div class="filtros" data-filtros hidden role="group" aria-label="Filtrar eventos por tipo"></div>
+        </div>
+        <!-- Las tarjetas se pintan en JS desde js/data/eventos.js. -->
+        <ul class="eventos" data-eventos></ul>
+        <p class="eventos__vacio" data-eventos-vacio hidden>
+          Por ahora no hay eventos anunciados. Las actividades de cada día siguen en la
+          <a href="#programacion">programación de la semana</a>.
+        </p>
+      </div>
+    </section>
+
+    <!-- ===== SERVICIOS ===================================================== -->
+    <section id="servicios" class="seccion seccion--blanco" aria-labelledby="titulo-servicios">
+      <div class="contenedor">
+        <h2 id="titulo-servicios" class="seccion__titulo seccion__titulo--con-intro">Servicios</h2>
+        <p class="seccion__intro">Además del almuerzo, el comedor ofrece:</p>
+        <ul class="servicios">
+          <li>
+            <span class="icono-circulo"><svg aria-hidden="true" focusable="false" class="icono" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0l-2.35 8.36A2 2 0 0 1 4.49 12H2"/></svg></span>
+            <div>
+              <h3>Fisioterapia</h3>
+              <p>Sesiones para mantener el movimiento y aliviar dolores.</p>
+            </div>
+          </li>
+          <li>
+            <span class="icono-circulo"><svg aria-hidden="true" focusable="false" class="icono" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><path d="M8.12 8.12 12 12"/><path d="M20 4 8.12 15.88"/><circle cx="6" cy="18" r="3"/><path d="M14.8 14.8 20 20"/></svg></span>
+            <div>
+              <h3>Barbería</h3>
+              <p>Corte de cabello y afeitado.</p>
+            </div>
+          </li>
+          <li>
+            <span class="icono-circulo"><svg aria-hidden="true" focusable="false" class="icono" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"/><path d="M20 2v4"/><path d="M22 4h-4"/><circle cx="4" cy="20" r="2"/></svg></span>
+            <div>
+              <h3>Belleza integral</h3>
+              <p>Cuidado personal para sentirse bien.</p>
+            </div>
+          </li>
+          <li>
+            <span class="icono-circulo"><svg aria-hidden="true" focusable="false" class="icono" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m10.5 20.5 10-10a4.95 4.95 0 1 0-7-7l-10 10a4.95 4.95 0 1 0 7 7Z"/><path d="m8.5 8.5 7 7"/></svg></span>
+            <div>
+              <h3>Medicinas donadas</h3>
+              <p>Entrega de medicinas recibidas en donación.</p>
+            </div>
+          </li>
+          <li>
+            <span class="icono-circulo"><svg aria-hidden="true" focusable="false" class="icono" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 10V9"/><path d="M16.472 15a6 6 0 01-8.943 0"/><path d="M9 10V9"/><circle cx="12" cy="12" r="10"/></svg></span>
+            <div>
+              <h3>Terapias</h3>
+              <p>Personales, familiares y grupales.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===== VOCES ========================================================= -->
+    <section id="voces" class="seccion seccion--suave" aria-labelledby="titulo-voces">
+      <div class="contenedor">
+        <div class="voces">
+          <div class="voces__texto">
+            <div class="voces__titulo">
+              <span class="icono-circulo icono-circulo--amarillo"><svg aria-hidden="true" focusable="false" class="icono" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V3a1 1 0 0 0-1.28-.96l-10 2.917a1 1 0 0 0-.72.96V19"/><circle cx="18" cy="16" r="3"/><circle cx="6" cy="19" r="3"/></svg></span>
+              <h2 id="titulo-voces">Voces de San Jorge</h2>
+            </div>
+            <p>Voces de San Jorge es el proyecto de música terapéutica de la fundación, junto a la Orquesta Sinfónica y la Dama Voluntaria.</p>
+            <p>Ensayan los lunes en el comedor.</p>
+          </div>
+          <div class="voces__media">
+            <div class="pendiente pendiente--foto"><span>[Foto o video de una presentación]</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CÓMO AYUDAR =================================================== -->
+    <section id="como-ayudar" class="seccion seccion--blanco" aria-labelledby="titulo-como-ayudar">
+      <div class="contenedor">
+        <h2 id="titulo-como-ayudar" class="seccion__titulo seccion__titulo--con-intro">Cómo ayudar</h2>
+        <p class="seccion__intro">Cada plato que se sirve es posible gracias a personas e instituciones que aportan lo que pueden.</p>
+        <ul class="ayudar">
+          <li class="ayudar__item">
+            <div class="ayudar__titulo">
+              <svg aria-hidden="true" focusable="false" class="icono" xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 21.73a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73z"/><path d="M12 22V12"/><polyline points="3.29 7 12 12 20.71 7"/><path d="m7.5 4.27 9 5.15"/></svg>
+              <h3>Donar</h3>
+            </div>
+            <p class="ayudar__texto">Medicinas, artículos de higiene y otros insumos para el comedor.</p>
+            <p class="pendiente">Pendiente: detalles de "donar".</p>
+            <a class="boton boton--whatsapp-contorno boton--ancho" href="#" target="_blank" rel="noopener" data-whatsapp-mensaje="Hola, quiero hacer una donación a la Fundación San Jorge." hidden>
+              <svg aria-hidden="true" focusable="false" class="icono" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719"/></svg>
+              <span>Escribir por WhatsApp</span>
+            </a>
+          </li>
+          <li class="ayudar__item">
+            <div class="ayudar__titulo">
+              <svg aria-hidden="true" focusable="false" class="icono" xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 12h2a2 2 0 1 0 0-4h-3c-.6 0-1.1.2-1.4.6L3 14"/><path d="m7 18 1.6-1.4c.3-.4.8-.6 1.4-.6h4c1.1 0 2.1-.4 2.8-1.2l4.6-4.4a2 2 0 0 0-2.75-2.91l-4.2 3.9"/><path d="m2 13 6 6"/></svg>
+              <h3>Ser voluntario</h3>
+            </div>
+            <p class="ayudar__texto">Acompaña, sirve o comparte lo que sabes hacer.</p>
+            <p class="pendiente">Pendiente: detalles de "ser voluntario".</p>
+            <a class="boton boton--whatsapp-contorno boton--ancho" href="#" target="_blank" rel="noopener" data-whatsapp-mensaje="Hola, me gustaría ser voluntario en la Fundación San Jorge." hidden>
+              <svg aria-hidden="true" focusable="false" class="icono" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719"/></svg>
+              <span>Escribir por WhatsApp</span>
+            </a>
+          </li>
+          <li class="ayudar__item">
+            <div class="ayudar__titulo">
+              <svg aria-hidden="true" focusable="false" class="icono" xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><path d="M16 3.128a4 4 0 0 1 0 7.744"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><circle cx="9" cy="7" r="4"/></svg>
+              <h3>Aliarse</h3>
+            </div>
+            <p class="ayudar__texto">Iglesias, hospitales, empresas e instituciones que quieran sumar esfuerzos.</p>
+            <a class="boton boton--whatsapp-contorno boton--ancho" href="#" target="_blank" rel="noopener" data-whatsapp-mensaje="Hola, represento a una institución y nos gustaría aliarnos con la Fundación San Jorge." hidden>
+              <svg aria-hidden="true" focusable="false" class="icono" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719"/></svg>
+              <span>Escribir por WhatsApp</span>
+            </a>
+          </li>
+        </ul>
+        <!-- Se oculta cuando JS encuentra un número de WhatsApp en contacto.js. -->
+        <p class="pendiente" data-pendiente-whatsapp>Pendiente: número de WhatsApp oficial (activa los botones de esta sección).</p>
+      </div>
+    </section>
+
+    <!-- ===== SOLICITAR AYUDA =============================================== -->
+    <section id="solicitar-ayuda" class="seccion seccion--suave" aria-labelledby="titulo-solicitar-ayuda">
+      <div class="contenedor">
+        <div class="solicitar">
+          <div class="solicitar__texto">
+            <h2 id="titulo-solicitar-ayuda">Solicitar ayuda</h2>
+            <p>Si necesitas exámenes, consultas médicas u otro apoyo, la fundación puede orientarte a través de Bera Transforma y Bera Salud.</p>
+            <div class="solicitar__boton">
+              <a class="boton boton--whatsapp" href="#" target="_blank" rel="noopener" data-whatsapp-mensaje="Hola, quisiera información para solicitar ayuda a la Fundación San Jorge." hidden>
+                <svg aria-hidden="true" focusable="false" class="icono" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719"/></svg>
+                <span>Preguntar por WhatsApp</span>
+              </a>
+            </div>
+          </div>
+          <ol class="pasos">
+            <li class="pasos__pendiente"><span>[A quién va dirigida la carta]</span></li>
+            <li class="pasos__pendiente"><span>[Qué documentos llevar]</span></li>
+            <li class="pasos__pendiente"><span>[Dónde y en qué horario se entrega]</span></li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== GALERÍA ======================================================= -->
+    <section id="galeria" class="seccion seccion--blanco" aria-labelledby="titulo-galeria">
+      <div class="contenedor">
+        <h2 id="titulo-galeria" class="seccion__titulo">Galería</h2>
+        <div class="galeria" aria-hidden="true">
+          <div class="galeria__hueco"></div>
+          <div class="galeria__hueco"></div>
+          <div class="galeria__hueco"></div>
+          <div class="galeria__hueco"></div>
+          <div class="galeria__hueco"></div>
+          <div class="galeria__hueco"></div>
+        </div>
+        <p class="nota">[9 a 12 fotos del comedor, con permiso de quienes aparecen]</p>
+      </div>
+    </section>
+
+    <!-- ===== CONTACTO ====================================================== -->
+    <section id="contacto" class="seccion seccion--blanco" aria-labelledby="titulo-contacto">
+      <div class="contenedor">
+        <div class="contacto">
+          <div class="contacto__datos">
+            <h2 id="titulo-contacto">Contacto</h2>
+            <ul>
+              <li>
+                <svg aria-hidden="true" focusable="false" class="icono" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                <div><strong>Horario</strong><br />Lunes a viernes, 8:00&nbsp;a.m. a 2:00&nbsp;p.m.</div>
+              </li>
+              <li>
+                <svg aria-hidden="true" focusable="false" class="icono" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>
+                <div><strong>Dirección</strong><br /><span class="nota-en-linea">[Dirección exacta]</span>, La Victoria, Aragua</div>
+              </li>
+              <li>
+                <svg aria-hidden="true" focusable="false" class="icono" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719"/></svg>
+                <div><strong>WhatsApp</strong><br /><span class="nota-en-linea">[Número oficial]</span></div>
+              </li>
+              <li>
+                <svg aria-hidden="true" focusable="false" class="icono" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13.997 4a2 2 0 0 1 1.76 1.05l.486.9A2 2 0 0 0 18.003 7H20a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h1.997a2 2 0 0 0 1.759-1.048l.489-.904A2 2 0 0 1 10.004 4z"/><circle cx="12" cy="13" r="3"/></svg>
+                <div><strong>Instagram</strong><br /><span class="nota-en-linea">[@usuario]</span></div>
+              </li>
+            </ul>
+          </div>
+          <div class="contacto__mapa">
+            <div class="pendiente pendiente--foto"><span>[Mapa de Google]</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== PIE ============================================================= -->
+  <footer class="pie">
+    <div class="contenedor pie__fila">
+      <div class="pie__marca">
+        <img src="img/logo-san-jorge.webp" alt="Logo de la Fundación San Jorge" width="72" height="67" loading="lazy" />
+        <div>
+          <p class="pie__nombre">Fundación San Jorge</p>
+          <p class="pie__frase">Un brillo de luz en la oscuridad</p>
+        </div>
+      </div>
+      <div class="pie__datos">
+        <p>Lunes a viernes, 8:00&nbsp;a.m. a 2:00&nbsp;p.m.</p>
+        <p>La Victoria, Aragua</p>
+      </div>
+      <p class="pie__credito">
+        Sitio desarrollado como Servicio Comunitario de la Universidad Bicentenaria de Aragua (UBA).
+      </p>
+    </div>
+  </footer>
+
+  <!-- ===== BARRA INFERIOR ================================================== -->
+  <!-- Barra fija en teléfono. Sin número de WhatsApp: muestra Contacto.
+       JS activa la opción WhatsApp y oculta Contacto si hay número en contacto.js. -->
+  <nav class="barra" aria-label="Accesos rápidos">
+    <a href="#programacion">
+      <svg aria-hidden="true" focusable="false" class="icono" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v3"/><path d="M16 2v3"/><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg>
+      <span>Actividades</span>
+    </a>
+    <a href="#como-ayudar">
+      <svg aria-hidden="true" focusable="false" class="icono" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9.5a5.5 5.5 0 0 1 9.591-3.676.56.56 0 0 0 .818 0A5.49 5.49 0 0 1 22 9.5c0 2.29-1.5 4-3 5.5l-5.492 5.313a2 2 0 0 1-3 .019L5 15c-1.5-1.5-3-3.2-3-5.5"/></svg>
+      <span>Ayudar</span>
+    </a>
+    <!-- Contacto visible por defecto (sin número de WhatsApp) -->
+    <a href="#contacto" data-barra-contacto>
+      <svg aria-hidden="true" focusable="false" class="icono" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>
+      <span>Contacto</span>
+    </a>
+    <!-- WhatsApp oculto hasta que JS lo active con el número de contacto.js -->
+    <a href="#" target="_blank" rel="noopener" class="barra__wa" data-barra-whatsapp hidden>
+      <svg aria-hidden="true" focusable="false" class="icono" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719"/></svg>
+      <span>WhatsApp</span>
+    </a>
+  </nav>
+  <!-- Botón flotante de escritorio (oculto hasta que JS lo active) -->
+  <a class="flotante" href="#" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp" data-flotante-whatsapp hidden>
+    <svg aria-hidden="true" focusable="false" class="icono" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719"/></svg>
+  </a>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

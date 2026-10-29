@@ -2,7 +2,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import {
   fechaLocalISO, normalizarFecha, diaYMes, diaSemana, fechaLarga, fechaCorta, horaLegible, rangoHoras,
-} from '../src/lib/fechas.js';
+} from '../js/lib/fechas.js';
 
 test('fechaLocalISO usa la fecha local, no UTC', () => {
   // 9:30 p.m. del 6 de noviembre: con toISOString() en UTC-4 saldría el 7.

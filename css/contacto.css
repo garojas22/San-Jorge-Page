@@ -1,0 +1,42 @@
+/* Galería y contacto. Lo que falta de la fundación se ve como recuadro
+   "pendiente" y desaparece al rellenar js/data/contacto.js. */
+
+.galeria {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(30%, 10rem), 1fr));
+  gap: 0.375rem;
+}
+.galeria__hueco { aspect-ratio: 1; border-radius: 8px; background: var(--sj-fondo-suave); }
+.nota { margin: 0.625rem 0 0; font-size: 0.9375rem; color: var(--sj-gris); }
+.nota-en-linea { color: var(--sj-gris); }
+
+.contacto {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem 2.5rem;
+  border-top: 1px solid var(--sj-linea);
+  padding-top: var(--espacio-seccion);
+}
+.contacto__datos { flex: 1 1 22rem; min-width: 0; }
+.contacto__datos h2 { margin-bottom: 1.25rem; }
+.contacto__datos ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 1rem; }
+.contacto__datos li { display: flex; gap: 0.75rem; align-items: flex-start; }
+.contacto__datos li svg { margin-top: 0.2rem; }
+.contacto__mapa { flex: 1 1 28rem; min-width: 0; }
+.contacto__mapa .pendiente { min-height: 10.5rem; }
+.contacto__abrir-mapa {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 10.5rem;
+  border-radius: var(--radio-tarjeta);
+  background: var(--sj-fondo-suave);
+  font-weight: 700;
+}
+
+@media (min-width: 768px) {
+  .galeria { grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr)); gap: 0.625rem; }
+  .galeria__hueco { aspect-ratio: 4 / 3; border-radius: 10px; }
+  .contacto__mapa .pendiente { min-height: 18.75rem; border-radius: var(--radio-grande); }
+}

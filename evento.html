@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="es-VE">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Evento | Fundación San Jorge</title>
+  <meta name="description" content="Detalle del evento de la Fundación San Jorge." />
+  <meta name="theme-color" content="#FFFFFF" />
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml" />
+
+  <!-- Open Graph: evento genérico; evento.js actualiza el <title> pero
+       los crawlers de WhatsApp leen el HTML original (techo conocido). -->
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="es_VE" />
+  <meta property="og:site_name" content="Fundación San Jorge" />
+  <meta property="og:title" content="Evento | Fundación San Jorge" />
+  <meta property="og:description" content="Detalle del evento de la Fundación San Jorge." />
+  <meta property="og:image" content="img/og.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Se ejecuta antes de pintar: aplica el texto grande guardado sin
+       que la página "salte", y marca que hay JavaScript disponible. -->
+  <script>
+    document.documentElement.classList.add('js');
+    try {
+      if (localStorage.getItem('sj-texto-grande') === '1') {
+        document.documentElement.classList.add('texto-grande');
+      }
+    } catch (e) {}
+  </script>
+
+  <link rel="stylesheet" href="css/variables.css" />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/encabezado.css" />
+  <link rel="stylesheet" href="css/eventos.css" />
+  <link rel="stylesheet" href="css/pie.css" />
+  <link rel="stylesheet" href="css/barra-inferior.css" />
+  <link rel="stylesheet" href="css/evento.css" />
+</head>
+<body>
+  <a class="saltar-contenido" href="#contenido">Saltar al contenido</a>
+
+  <!-- ===== ENCABEZADO ===================================================== -->
+  <header class="encabezado">
+    <div class="contenedor encabezado__fila">
+      <a class="marca" href="index.html" aria-label="Fundación San Jorge, inicio">
+        <img class="marca__logo" src="img/logo-san-jorge.webp" alt="" width="48" height="45" />
+        <span class="marca__texto">
+          <span class="marca__pre">Fundación</span>
+          <span class="marca__nombre">San Jorge</span>
+        </span>
+      </a>
+
+      <nav class="menu" id="menu-principal" aria-label="Principal">
+        <ul>
+          <li><a href="index.html#programacion">Actividades</a></li>
+          <li><a href="index.html#eventos">Eventos</a></li>
+          <li class="menu__solo-telefono"><a href="index.html#quienes-somos">Quiénes somos</a></li>
+          <li><a href="index.html#servicios">Servicios</a></li>
+          <li><a href="index.html#como-ayudar">Cómo ayudar</a></li>
+          <li><a href="index.html#solicitar-ayuda">Solicitar ayuda</a></li>
+          <li><a href="index.html#contacto">Contacto</a></li>
+        </ul>
+        <p class="menu__horario">Abierto de lunes a viernes, 8:00&nbsp;a.m. a 2:00&nbsp;p.m.</p>
+      </nav>
+
+      <div class="encabezado__acciones">
+        <button class="control" type="button" data-texto-grande aria-pressed="false">
+          A+<span class="solo-lector"> Agrandar el texto</span>
+        </button>
+        <button
+          class="control control--menu"
+          type="button"
+          data-menu-boton
+          aria-expanded="false"
+          aria-controls="menu-principal"
+        >
+          <span class="control__icono control__icono--abrir"><svg aria-hidden="true" focusable="false" class="icono" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16"/><path d="M4 12h16"/><path d="M4 19h16"/></svg></span>
+          <span class="control__icono control__icono--cerrar"><svg aria-hidden="true" focusable="false" class="icono" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></span>
+          <span data-menu-texto>Menú</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- evento.js rellena este main con el detalle del evento o un 404. -->
+  <main id="contenido"></main>
+
+  <!-- ===== PIE ============================================================= -->
+  <footer class="pie">
+    <div class="contenedor pie__fila">
+      <div class="pie__marca">
+        <img src="img/logo-san-jorge.webp" alt="Logo de la Fundación San Jorge" width="72" height="67" loading="lazy" />
+        <div>
+          <p class="pie__nombre">Fundación San Jorge</p>
+          <p class="pie__frase">Un brillo de luz en la oscuridad</p>
+        </div>
+      </div>
+      <div class="pie__datos">
+        <p>Lunes a viernes, 8:00&nbsp;a.m. a 2:00&nbsp;p.m.</p>
+        <p>La Victoria, Aragua</p>
+      </div>
+      <p class="pie__credito">
+        Sitio desarrollado como Servicio Comunitario de la Universidad Bicentenaria de Aragua (UBA).
+      </p>
+    </div>
+  </footer>
+
+  <!-- ===== BARRA INFERIOR ================================================== -->
+  <nav class="barra" aria-label="Accesos rápidos">
+    <a href="index.html#programacion">
+      <svg aria-hidden="true" focusable="false" class="icono" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v3"/><path d="M16 2v3"/><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg>
+      <span>Actividades</span>
+    </a>
+    <a href="index.html#como-ayudar">
+      <svg aria-hidden="true" focusable="false" class="icono" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9.5a5.5 5.5 0 0 1 9.591-3.676.56.56 0 0 0 .818 0A5.49 5.49 0 0 1 22 9.5c0 2.29-1.5 4-3 5.5l-5.492 5.313a2 2 0 0 1-3 .019L5 15c-1.5-1.5-3-3.2-3-5.5"/></svg>
+      <span>Ayudar</span>
+    </a>
+    <a href="index.html#contacto" data-barra-contacto>
+      <svg aria-hidden="true" focusable="false" class="icono" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>
+      <span>Contacto</span>
+    </a>
+    <a href="#" target="_blank" rel="noopener" class="barra__wa" data-barra-whatsapp hidden>
+      <svg aria-hidden="true" focusable="false" class="icono" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719"/></svg>
+      <span>WhatsApp</span>
+    </a>
+  </nav>
+  <a class="flotante" href="#" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp" data-flotante-whatsapp hidden>
+    <svg aria-hidden="true" focusable="false" class="icono" xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719"/></svg>
+  </a>
+
+  <script type="module" src="js/main.js"></script>
+  <script type="module" src="js/evento.js"></script>
+</body>
+</html>

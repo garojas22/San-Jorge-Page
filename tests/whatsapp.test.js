@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { normalizarNumero, enlaceWhatsApp } from '../src/lib/whatsapp.js';
+import { normalizarNumero, enlaceWhatsApp } from '../js/lib/whatsapp.js';
 
 test('normalizarNumero acepta las formas comunes de escribir un número venezolano', () => {
   assert.equal(normalizarNumero('0414-123.45.67'), '584141234567');

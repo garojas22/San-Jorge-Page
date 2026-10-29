@@ -1,9 +1,18 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { eventosProximos, eventosPasados, tipoPorId, tiposPresentes } from '../src/lib/eventos.js';
-import { programacionDelDia } from '../src/lib/programacion.js';
-import { PROGRAMACION } from '../src/data/programacion.js';
-import { IDS_TIPO } from '../src/data/tipos-evento.js';
+import { eventosProximos, eventosPasados, tipoPorId, tiposPresentes } from '../js/lib/eventos.js';
+import { programacionDelDia } from '../js/lib/programacion.js';
+import { IDS_TIPO } from '../js/data/tipos-evento.js';
+
+// Programación de prueba (la real vive en el HTML; aquí solo se necesita
+// para comprobar que programacionDelDia devuelve el día correcto).
+const PROGRAMACION = [
+  { dia: 1, nombre: 'Lunes', actividades: [] },
+  { dia: 2, nombre: 'Martes', actividades: [] },
+  { dia: 3, nombre: 'Miércoles', actividades: [] },
+  { dia: 4, nombre: 'Jueves', actividades: [] },
+  { dia: 5, nombre: 'Viernes', actividades: [] },
+];
 
 const ev = (id, fecha, horaInicio, extra = {}) => ({
   id, titulo: id, tipo: 'comunidad', fecha, horaInicio, publicado: true, ...extra,

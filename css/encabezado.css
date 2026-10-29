@@ -1,0 +1,107 @@
+/* Encabezado blanco con el logo y una línea amarilla de 3 px debajo.
+   Teléfono: logo + A+ + botón "Menú" que despliega la lista.
+   Computadora (≥ 992 px): los enlaces se ven siempre, en una fila.
+   Sin JavaScript el menú se ve siempre abierto: nada queda inaccesible. */
+
+.encabezado {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--sj-blanco);
+  border-bottom: 3px solid var(--sj-amarillo);
+}
+.encabezado__fila {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0 1rem;
+  padding-block: 0.625rem;
+}
+
+.marca {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  color: var(--sj-negro);
+  text-decoration: none;
+  min-height: var(--toque-min);
+}
+.marca:hover { color: var(--sj-negro); }
+.marca__logo { width: 2.75rem; height: auto; }
+.marca__texto { display: flex; flex-direction: column; line-height: 1.1; }
+.marca__pre { font-size: 0.8125rem; color: var(--sj-gris); }
+.marca__nombre { font-size: 1.125rem; font-weight: 800; }
+
+.encabezado__acciones { display: flex; gap: 0.5rem; }
+.control {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.375rem;
+  min-width: var(--toque-min);
+  height: var(--toque-min);
+  padding: 0 0.875rem;
+  border-radius: var(--radio-boton);
+  border: 1px solid var(--sj-borde-control);
+  background: var(--sj-blanco);
+  color: var(--sj-negro);
+  font-family: var(--fuente);
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+}
+.control[aria-pressed='true'],
+.control--menu[aria-expanded='true'] {
+  background: var(--sj-negro);
+  border-color: var(--sj-negro);
+  color: var(--sj-blanco);
+}
+.control--menu { display: none; } /* solo existe con JavaScript */
+html.js .control--menu { display: inline-flex; }
+.control__icono { display: inline-flex; }
+.control__icono--cerrar,
+.control--menu[aria-expanded='true'] .control__icono--abrir { display: none; }
+.control--menu[aria-expanded='true'] .control__icono--cerrar { display: inline-flex; }
+
+/* Menú del teléfono: lista grande, ocupa el ancho, debajo de la fila. */
+.menu { order: 3; flex-basis: 100%; }
+.menu ul { list-style: none; margin: 0; padding: 0.5rem 0 0; }
+.menu li { border-bottom: 1px solid var(--sj-linea); }
+.menu li:last-child { border-bottom: 0; }
+.menu a {
+  display: flex;
+  align-items: center;
+  min-height: 3.75rem;
+  font-size: 1.3125rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+.menu__horario {
+  margin: 0.5rem calc(-1 * var(--margen-lateral)) -0.625rem;
+  padding: 1rem var(--margen-lateral);
+  background: var(--sj-fondo-suave);
+  color: var(--sj-gris);
+  font-size: var(--texto-chico);
+}
+/* Con JavaScript, el menú del teléfono se pliega detrás del botón. */
+html.js .menu:not(.abierto) { display: none; }
+
+@media (min-width: 992px) {
+  .encabezado__fila { flex-wrap: nowrap; }
+  html.js .control--menu { display: none; }
+  .menu,
+  html.js .menu:not(.abierto) {
+    display: block;
+    order: 0;
+    flex-basis: auto;
+    margin-left: auto;
+  }
+  .menu ul { display: flex; padding: 0; }
+  .menu li { border: 0; }
+  .menu__solo-telefono, .menu__horario { display: none; }
+  .menu a { min-height: var(--toque-min); padding: 0 0.75rem; font-size: 1rem; }
+  .marca__logo { width: 3.25rem; }
+  .marca__pre { font-size: 0.875rem; }
+  .marca__nombre { font-size: 1.25rem; }
+}
